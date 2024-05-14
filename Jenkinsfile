@@ -5,43 +5,43 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                sh 'mvn clean package' // Adjust this command based on your build tool
+                bat 'mvn clean package'
             }
         }
         stage('Unit and Integration Tests') {
             steps {
                 echo 'Running unit tests...'
-                sh 'mvn test' // Adjust this command based on your testing framework
+                bat 'mvn test'
             }
         }
         stage('Code Analysis') {
             steps {
                 echo 'Performing code analysis...'
-                sh 'mvn sonar:sonar' // Adjust this command based on your code analysis tool
+                bat 'mvn sonar:sonar'
             }
         }
         stage('Security Scan') {
             steps {
                 echo 'Performing security scan...'
-                sh 'snyk test' // Adjust this command based on your security tool
+                bat 'snyk test'
             }
         }
         stage('Deploy to Staging') {
             steps {
                 echo 'Deploying to staging...'
-                sh 'scp target/myapp.jar user@staging-server:/path/to/deploy' // Adjust this command based on your deployment setup
+                bat 'pscp -i C:\Users\bayan\OneDrive\Desktop\azurs.ppk azureuser@52.170.123.45:/home/azureuser/deploy'
             }
         }
         stage('Integration Tests on Staging') {
             steps {
                 echo 'Running integration tests on staging...'
-                sh 'mvn verify' // Adjust this command based on your testing framework
+                bat 'mvn verify'
             }
         }
         stage('Deploy to Production') {
             steps {
                 echo 'Deploying to production...'
-                sh 'scp target/myapp.jar user@production-server:/path/to/deploy' // Adjust this command based on your deployment setup
+                bat 'pscp -i C:\Users\bayan\OneDrive\Desktop\azurs.ppk azureuser@52.170.123.45:/home/azureuser/deploy'
             }
         }
     }
