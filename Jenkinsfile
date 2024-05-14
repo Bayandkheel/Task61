@@ -49,7 +49,7 @@ pipeline {
     post {
         always {
             emailext(
-                to: 'developer@example.com',
+                to: 'bayandkheel12@gmail.com',
                 subject: "Build ${currentBuild.fullDisplayName}",
                 body: "Build ${currentBuild.fullDisplayName} finished with status: ${currentBuild.result}",
                 attachLog: true
